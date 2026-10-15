@@ -1,4 +1,8 @@
 {
+  "hu": {
+    "label": "Magyar",
+    "llmInstruction": "Kérlek, magyarul válaszolj."
+  },
   "zh": {
     "label": "中文",
     "llmInstruction": "请使用中文回答。"

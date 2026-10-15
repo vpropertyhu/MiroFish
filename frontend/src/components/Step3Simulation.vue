@@ -9,7 +9,7 @@
             <svg class="platform-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
             </svg>
-            <span class="platform-name">Info Plaza</span>
+            <span class="platform-name">{{ $t('ui.infoPlaza') }}</span>
             <span v-if="runStatus.twitter_completed" class="status-badge">
               <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3">
                 <polyline points="20 6 9 17 4 12"></polyline>
@@ -18,28 +18,28 @@
           </div>
           <div class="platform-stats">
             <span class="stat">
-              <span class="stat-label">ROUND</span>
+              <span class="stat-label">{{ $t('ui.round') }}</span>
               <span class="stat-value mono">{{ runStatus.twitter_current_round || 0 }}<span class="stat-total">/{{ runStatus.total_rounds || maxRounds || '-' }}</span></span>
             </span>
             <span class="stat">
-              <span class="stat-label">TIME</span>
+              <span class="stat-label">{{ $t('ui.time') }}</span>
               <span class="stat-value mono">{{ twitterElapsedTime }}</span>
             </span>
             <span class="stat">
-              <span class="stat-label">ACTS</span>
+              <span class="stat-label">{{ $t('ui.actions') }}</span>
               <span class="stat-value mono">{{ runStatus.twitter_actions_count || 0 }}</span>
             </span>
           </div>
           <!-- 可用动作提示 -->
           <div class="actions-tooltip">
-            <div class="tooltip-title">Available Actions</div>
+            <div class="tooltip-title">{{ $t('ui.availableActions') }}</div>
             <div class="tooltip-actions">
-              <span class="tooltip-action">POST</span>
-              <span class="tooltip-action">LIKE</span>
-              <span class="tooltip-action">REPOST</span>
-              <span class="tooltip-action">QUOTE</span>
-              <span class="tooltip-action">FOLLOW</span>
-              <span class="tooltip-action">IDLE</span>
+              <span class="tooltip-action">{{ $t('ui.post') }}</span>
+              <span class="tooltip-action">{{ $t('ui.like') }}</span>
+              <span class="tooltip-action">{{ $t('ui.repost') }}</span>
+              <span class="tooltip-action">{{ $t('ui.quote') }}</span>
+              <span class="tooltip-action">{{ $t('ui.follow') }}</span>
+              <span class="tooltip-action">{{ $t('ui.idle') }}</span>
             </div>
           </div>
         </div>
@@ -50,7 +50,7 @@
             <svg class="platform-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
             </svg>
-            <span class="platform-name">Topic Community</span>
+            <span class="platform-name">{{ $t('ui.topicCommunity') }}</span>
             <span v-if="runStatus.reddit_completed" class="status-badge">
               <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3">
                 <polyline points="20 6 9 17 4 12"></polyline>
@@ -59,32 +59,32 @@
           </div>
           <div class="platform-stats">
             <span class="stat">
-              <span class="stat-label">ROUND</span>
+              <span class="stat-label">{{ $t('ui.round') }}</span>
               <span class="stat-value mono">{{ runStatus.reddit_current_round || 0 }}<span class="stat-total">/{{ runStatus.total_rounds || maxRounds || '-' }}</span></span>
             </span>
             <span class="stat">
-              <span class="stat-label">TIME</span>
+              <span class="stat-label">{{ $t('ui.time') }}</span>
               <span class="stat-value mono">{{ redditElapsedTime }}</span>
             </span>
             <span class="stat">
-              <span class="stat-label">ACTS</span>
+              <span class="stat-label">{{ $t('ui.actions') }}</span>
               <span class="stat-value mono">{{ runStatus.reddit_actions_count || 0 }}</span>
             </span>
           </div>
           <!-- 可用动作提示 -->
           <div class="actions-tooltip">
-            <div class="tooltip-title">Available Actions</div>
+            <div class="tooltip-title">{{ $t('ui.availableActions') }}</div>
             <div class="tooltip-actions">
-              <span class="tooltip-action">POST</span>
-              <span class="tooltip-action">COMMENT</span>
-              <span class="tooltip-action">LIKE</span>
-              <span class="tooltip-action">DISLIKE</span>
-              <span class="tooltip-action">SEARCH</span>
-              <span class="tooltip-action">TREND</span>
-              <span class="tooltip-action">FOLLOW</span>
-              <span class="tooltip-action">MUTE</span>
-              <span class="tooltip-action">REFRESH</span>
-              <span class="tooltip-action">IDLE</span>
+              <span class="tooltip-action">{{ $t('ui.post') }}</span>
+              <span class="tooltip-action">{{ $t('ui.comment') }}</span>
+              <span class="tooltip-action">{{ $t('ui.like') }}</span>
+              <span class="tooltip-action">{{ $t('ui.dislike') }}</span>
+              <span class="tooltip-action">{{ $t('ui.search') }}</span>
+              <span class="tooltip-action">{{ $t('ui.trend') }}</span>
+              <span class="tooltip-action">{{ $t('ui.follow') }}</span>
+              <span class="tooltip-action">{{ $t('ui.mute') }}</span>
+              <span class="tooltip-action">{{ $t('ui.refreshAction') }}</span>
+              <span class="tooltip-action">{{ $t('ui.idle') }}</span>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@
       <!-- Timeline Header -->
       <div class="timeline-header" v-if="allActions.length > 0">
         <div class="timeline-stats">
-          <span class="total-count">TOTAL EVENTS: <span class="mono">{{ allActions.length }}</span></span>
+          <span class="total-count">{{ $t('ui.totalEvents') }} <span class="mono">{{ allActions.length }}</span></span>
           <span class="platform-breakdown">
             <span class="breakdown-item twitter">
               <svg class="mini-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
@@ -159,13 +159,13 @@
               <div class="card-body">
                 <!-- CREATE_POST: 发布帖子 -->
                 <div v-if="action.action_type === 'CREATE_POST' && action.action_args?.content" class="content-text main-text">
-                  {{ action.action_args.content }}
+                  {{ localizeContent(action.action_args.content) }}
                 </div>
 
                 <!-- QUOTE_POST: 引用帖子 -->
                 <template v-if="action.action_type === 'QUOTE_POST'">
                   <div v-if="action.action_args?.quote_content" class="content-text">
-                    {{ action.action_args.quote_content }}
+                    {{ localizeContent(action.action_args.quote_content) }}
                   </div>
                   <div v-if="action.action_args?.original_content" class="quoted-block">
                     <div class="quote-header">
@@ -173,7 +173,7 @@
                       <span class="quote-label">@{{ action.action_args.original_author_name || 'User' }}</span>
                     </div>
                     <div class="quote-text">
-                      {{ truncateContent(action.action_args.original_content, 150) }}
+                      {{ truncateContent(localizeContent(action.action_args.original_content), 150) }}
                     </div>
                   </div>
                 </template>
@@ -182,10 +182,10 @@
                 <template v-if="action.action_type === 'REPOST'">
                   <div class="repost-info">
                     <svg class="icon-small" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
-                    <span class="repost-label">Reposted from @{{ action.action_args?.original_author_name || 'User' }}</span>
+                    <span class="repost-label">{{ $t('ui.repostedFrom', { name: action.action_args?.original_author_name || 'Felhasználó' }) }}</span>
                   </div>
                   <div v-if="action.action_args?.original_content" class="repost-content">
-                    {{ truncateContent(action.action_args.original_content, 200) }}
+                    {{ truncateContent(localizeContent(action.action_args.original_content), 200) }}
                   </div>
                 </template>
 
@@ -193,21 +193,21 @@
                 <template v-if="action.action_type === 'LIKE_POST'">
                   <div class="like-info">
                     <svg class="icon-small filled" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                    <span class="like-label">Liked @{{ action.action_args?.post_author_name || 'User' }}'s post</span>
+                    <span class="like-label">{{ $t('ui.likedPost', { name: action.action_args?.post_author_name || 'Felhasználó' }) }}</span>
                   </div>
                   <div v-if="action.action_args?.post_content" class="liked-content">
-                    "{{ truncateContent(action.action_args.post_content, 120) }}"
+                    "{{ truncateContent(localizeContent(action.action_args.post_content), 120) }}"
                   </div>
                 </template>
 
                 <!-- CREATE_COMMENT: 发表评论 -->
                 <template v-if="action.action_type === 'CREATE_COMMENT'">
                   <div v-if="action.action_args?.content" class="content-text">
-                    {{ action.action_args.content }}
+                    {{ localizeContent(action.action_args.content) }}
                   </div>
                   <div v-if="action.action_args?.post_id" class="comment-context">
                     <svg class="icon-small" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    <span>Reply to post #{{ action.action_args.post_id }}</span>
+                    <span>{{ $t('ui.replyToPost', { id: action.action_args.post_id }) }}</span>
                   </div>
                 </template>
 
@@ -215,7 +215,7 @@
                 <template v-if="action.action_type === 'SEARCH_POSTS'">
                   <div class="search-info">
                     <svg class="icon-small" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <span class="search-label">Search Query:</span>
+                    <span class="search-label">{{ $t('ui.searchQuery') }}</span>
                     <span class="search-query">"{{ action.action_args?.query || '' }}"</span>
                   </div>
                 </template>
@@ -224,7 +224,7 @@
                 <template v-if="action.action_type === 'FOLLOW'">
                   <div class="follow-info">
                     <svg class="icon-small" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
-                    <span class="follow-label">Followed @{{ action.action_args?.target_user || action.action_args?.user_id || 'User' }}</span>
+                    <span class="follow-label">{{ $t('ui.followed', { name: action.action_args?.target_user || action.action_args?.user_id || 'Felhasználó' }) }}</span>
                   </div>
                 </template>
 
@@ -233,10 +233,10 @@
                   <div class="vote-info">
                     <svg v-if="action.action_type === 'UPVOTE_POST'" class="icon-small" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
                     <svg v-else class="icon-small" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    <span class="vote-label">{{ action.action_type === 'UPVOTE_POST' ? 'Upvoted' : 'Downvoted' }} Post</span>
+                    <span class="vote-label">{{ $t(action.action_type === 'UPVOTE_POST' ? 'ui.upvoted' : 'ui.downvoted') }}</span>
                   </div>
                   <div v-if="action.action_args?.post_content" class="voted-content">
-                    "{{ truncateContent(action.action_args.post_content, 120) }}"
+                    "{{ truncateContent(localizeContent(action.action_args.post_content), 120) }}"
                   </div>
                 </template>
 
@@ -244,13 +244,13 @@
                 <template v-if="action.action_type === 'DO_NOTHING'">
                   <div class="idle-info">
                     <svg class="icon-small" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                    <span class="idle-label">Action Skipped</span>
+                    <span class="idle-label">{{ $t('ui.actionSkipped') }}</span>
                   </div>
                 </template>
 
                 <!-- 通用回退：未知类型或有 content 但未被上述处理 -->
                 <div v-if="!['CREATE_POST', 'QUOTE_POST', 'REPOST', 'LIKE_POST', 'CREATE_COMMENT', 'SEARCH_POSTS', 'FOLLOW', 'UPVOTE_POST', 'DOWNVOTE_POST', 'DO_NOTHING'].includes(action.action_type) && action.action_args?.content" class="content-text">
-                  {{ action.action_args.content }}
+                  {{ localizeContent(action.action_args.content) }}
                 </div>
               </div>
 
@@ -264,7 +264,7 @@
 
         <div v-if="allActions.length === 0" class="waiting-state">
           <div class="pulse-ring"></div>
-          <span>Waiting for agent actions...</span>
+          <span>{{ $t('ui.waitingForActions') }}</span>
         </div>
       </div>
     </div>
@@ -272,7 +272,7 @@
     <!-- Bottom Info / Logs -->
     <div class="system-logs">
       <div class="log-header">
-        <span class="log-title">SIMULATION MONITOR</span>
+        <span class="log-title">{{ $t('ui.simulationMonitor') }}</span>
         <span class="log-id">{{ simulationId || 'NO_SIMULATION' }}</span>
       </div>
       <div class="log-content" ref="logContent">
@@ -297,7 +297,7 @@ import {
 } from '../api/simulation'
 import { generateReport } from '../api/report'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const props = defineProps({
   simulationId: String,
@@ -398,7 +398,7 @@ const doStartSimulation = async () => {
     const params = {
       simulation_id: props.simulationId,
       platform: 'parallel',
-      force: true,  // 强制重新开始
+      force: false,
       enable_graph_memory_update: true  // 开启动态图谱更新
     }
     
@@ -595,19 +595,19 @@ const fetchRunStatusDetail = async () => {
 // Helpers
 const getActionTypeLabel = (type) => {
   const labels = {
-    'CREATE_POST': 'POST',
-    'REPOST': 'REPOST',
-    'LIKE_POST': 'LIKE',
-    'CREATE_COMMENT': 'COMMENT',
-    'LIKE_COMMENT': 'LIKE',
-    'DO_NOTHING': 'IDLE',
-    'FOLLOW': 'FOLLOW',
-    'SEARCH_POSTS': 'SEARCH',
-    'QUOTE_POST': 'QUOTE',
-    'UPVOTE_POST': 'UPVOTE',
-    'DOWNVOTE_POST': 'DOWNVOTE'
-  }
-  return labels[type] || type || 'UNKNOWN'
+    "CREATE_POST": "post",
+    "REPOST": "repost",
+    "LIKE_POST": "like",
+    "CREATE_COMMENT": "comment",
+    "LIKE_COMMENT": "like",
+    "DO_NOTHING": "idle",
+    "FOLLOW": "follow",
+    "SEARCH_POSTS": "search",
+    "QUOTE_POST": "quote",
+    "UPVOTE_POST": "like",
+    "DOWNVOTE_POST": "dislike"
+}
+  return labels[type] ? t('ui.' + labels[type]) : (type || t('common.unknown'))
 }
 
 const getActionTypeClass = (type) => {
@@ -625,6 +625,17 @@ const getActionTypeClass = (type) => {
     'DO_NOTHING': 'badge-idle'
   }
   return classes[type] || 'badge-default'
+}
+
+const contentTranslations = ref({})
+const localizeContent = (value) => locale.value === 'hu' ? (contentTranslations.value[value] || value) : value
+const loadContentTranslations = async () => {
+  try {
+    const response = await fetch('/translations/' + encodeURIComponent(props.simulationId) + '.hu.json', { cache: 'no-store' })
+    if (response.ok) contentTranslations.value = await response.json()
+  } catch {
+    // Original simulation content remains available when a translation is missing.
+  }
 }
 
 const truncateContent = (content, maxLength = 100) => {
@@ -688,10 +699,34 @@ watch(() => props.systemLogs?.length, () => {
   })
 })
 
-onMounted(() => {
+onMounted(async () => {
   addLog(t('log.step3Init'))
-  if (props.simulationId) {
-    doStartSimulation()
+  if (!props.simulationId) return
+  await loadContentTranslations()
+  try {
+    const existing = await getRunStatus(props.simulationId)
+    const data = existing.data
+    const hasExistingRun = existing.success && data && (
+      ['running', 'completed', 'stopped', 'failed'].includes(data.runner_status) ||
+      data.current_round > 0 || data.twitter_actions_count > 0 || data.reddit_actions_count > 0
+    )
+    if (hasExistingRun) {
+      phase.value = 1
+      runStatus.value = data
+      await fetchRunStatusDetail()
+      await fetchRunStatus()
+      if (phase.value !== 2) {
+        startStatusPolling()
+        startDetailPolling()
+      }
+      return
+    }
+    if (!existing.success) throw new Error(existing.error || t('common.unknownError'))
+    await doStartSimulation()
+  } catch (err) {
+    startError.value = err.message
+    addLog(t('log.checkStatusFailed', { error: err.message }))
+    emit('update-status', 'error')
   }
 })
 

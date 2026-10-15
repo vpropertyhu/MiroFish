@@ -57,6 +57,25 @@ class FilteredEntities:
     entity_types: Set[str]
     total_count: int
     filtered_count: int
+
+    def select_names(self, names):
+        """Keep an explicit audience without turning generic extracted terms into agents."""
+        if names is None:
+            return self
+        if (not isinstance(names, list) or not names
+                or any(not isinstance(name, str) or not name.strip() for name in names)
+                or len(set(names)) != len(names)):
+            raise ValueError("entity_names must be a non-empty list of unique names")
+        wanted = set(names)
+        selected = [entity for entity in self.entities if entity.name in wanted]
+        if len(selected) != len(wanted) or {entity.name for entity in selected} != wanted:
+            raise ValueError("Selected audience names must each match exactly one graph entity")
+        return FilteredEntities(
+            entities=selected,
+            entity_types={label for entity in selected for label in entity.labels if label not in {"Entity", "Node"}},
+            total_count=self.total_count,
+            filtered_count=len(selected),
+        )
     
     def to_dict(self) -> Dict[str, Any]:
         return {

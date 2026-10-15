@@ -1,3 +1,4 @@
+import { watch } from 'vue'
 import { createI18n } from 'vue-i18n'
 import languages from '../../../locales/languages.json'
 
@@ -14,14 +15,21 @@ for (const path in localeFiles) {
   }
 }
 
-const savedLocale = localStorage.getItem('locale') || 'zh'
+const savedLocale = localStorage.getItem('locale') || 'hu'
 
 const i18n = createI18n({
   legacy: false,
   locale: savedLocale,
-  fallbackLocale: 'zh',
+  fallbackLocale: 'hu',
   messages
 })
+
+watch(i18n.global.locale, (value) => {
+  document.documentElement.lang = value
+  document.title = i18n.global.t('meta.title')
+  const description = document.querySelector('meta[name="description"]')
+  if (description) description.content = i18n.global.t('meta.description')
+}, { immediate: true })
 
 export { availableLocales }
 export default i18n

@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: mirofish-magyar
+    runtime: docker
+    repo: https://github.com/vpropertyhu/MiroFish
+    branch: codex/megoszthato
+    region: frankfurt
+    plan: 1c-2g
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeployTrigger: off
+    healthCheckPath: /health
+    disk:
+      name: mirofish-adatok
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: LLM_API_KEY
+        sync: false
+      - key: ZEP_API_KEY
+        sync: false
+      - key: MIROFISH_ACCESS_PASSWORD_HASH
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: MIROFISH_ACCESS_USERNAME
+        value: mirofish
+      - key: LLM_BASE_URL
+        value: https://api.openai.com/v1
+      - key: LLM_MODEL_NAME
+        value: gpt-4.1-mini

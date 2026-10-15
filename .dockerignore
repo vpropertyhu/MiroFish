@@ -21,3 +21,13 @@ frontend/dist
 frontend/.vite
 
 backend/uploads
+.env.*
+!.env.example
+**/*.pem
+**/*.key
+**/*.sqlite3
+**/*.db
+**/logs
+**/.pytest_cache
+mentesek
+ellenorzes

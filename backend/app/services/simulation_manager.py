@@ -137,10 +137,7 @@ class SimulationManager:
     """
     
     # 模拟数据存储目录
-    SIMULATION_DATA_DIR = os.path.join(
-        os.path.dirname(__file__), 
-        '../../uploads/simulations'
-    )
+    SIMULATION_DATA_DIR = Config.OASIS_SIMULATION_DATA_DIR
     
     def __init__(self):
         # 确保目录存在
@@ -249,7 +246,8 @@ class SimulationManager:
         defined_entity_types: Optional[List[str]] = None,
         use_llm_for_profiles: bool = True,
         progress_callback: Optional[callable] = None,
-        parallel_profile_count: int = 3
+        parallel_profile_count: int = 3,
+        entity_names: Optional[List[str]] = None
     ) -> SimulationState:
         """
         准备模拟环境（全程自动化）
@@ -301,6 +299,11 @@ class SimulationManager:
                 defined_entity_types=defined_entity_types,
                 enrich_with_edges=True
             )
+            filtered = filtered.select_names(entity_names)
+            max_agents = int(os.environ.get('MIROFISH_MAX_AGENTS', '0'))
+            if max_agents > 0 and len(filtered.entities) > max_agents:
+                filtered.entities = filtered.entities[:max_agents]
+                filtered.filtered_count = len(filtered.entities)
             
             state.entities_count = filtered.filtered_count
             state.entity_types = list(filtered.entity_types)

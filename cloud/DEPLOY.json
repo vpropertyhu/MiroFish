@@ -1,0 +1,16 @@
+{
+  "status": "prepared_not_deployed",
+  "source": "666ghj/MiroFish",
+  "provider": "Render",
+  "proposed_region": "frankfurt",
+  "proposed_plan": "1c-2g",
+  "proposed_disk_gb": 1,
+  "proposed_mount_path": "/var/data",
+  "monthly_compute_and_disk_usd": 25.25,
+  "additional_usage_costs": ["OpenAI", "Zep", "possible Render bandwidth and build overages"],
+  "access": "password-protected shared workspace; all invited users see shared inputs and outputs",
+  "limits": {"new_projects_per_day": 3, "ai_entry_requests_per_day": 24, "max_agents": 8, "max_rounds": 20, "simultaneous_simulations": 1},
+  "required_secret_environment_names": ["LLM_API_KEY", "ZEP_API_KEY", "MIROFISH_ACCESS_PASSWORD_HASH"],
+  "secrets_transferred": false,
+  "paid_service_activated": false
+}
