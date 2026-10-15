@@ -284,6 +284,7 @@ def _check_simulation_prepared(simulation_id: str) -> tuple:
         (is_prepared: bool, info: dict)
     """
     import os
+    import json
     from ..config import Config
     
     simulation_dir = os.path.join(Config.OASIS_SIMULATION_DATA_DIR, simulation_id)
@@ -296,9 +297,18 @@ def _check_simulation_prepared(simulation_id: str) -> tuple:
     required_files = [
         "state.json",
         "simulation_config.json",
-        "reddit_profiles.json",
-        "twitter_profiles.csv"
     ]
+    # A single-platform study only generates that platform's profiles.
+    # Reopening/restarting it must not require the disabled platform's file.
+    try:
+        with open(os.path.join(simulation_dir, "state.json"), encoding="utf-8") as state_stream:
+            platform_flags = json.load(state_stream)
+    except (OSError, ValueError):
+        platform_flags = {}
+    if platform_flags.get("enable_reddit", True):
+        required_files.append("reddit_profiles.json")
+    if platform_flags.get("enable_twitter", True):
+        required_files.append("twitter_profiles.csv")
     
     # 检查文件是否存在
     existing_files = []

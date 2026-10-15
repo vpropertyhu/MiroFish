@@ -34,3 +34,17 @@ def test_shared_runs_emit_progress_and_exit_without_browser(monkeypatch, tmp_pat
     finally:
         for handle in SimulationRunner._stdout_files.values():
             handle.close()
+
+@pytest.mark.parametrize('platform,filename', [('reddit', 'reddit_profiles.json'), ('twitter', 'twitter_profiles.csv')])
+def test_single_platform_study_can_be_reopened_without_disabled_profiles(monkeypatch, tmp_path, platform, filename):
+    from app.api.simulation import _check_simulation_prepared
+    from app.config import Config
+    sim_dir = tmp_path / 'sim_reopen'
+    sim_dir.mkdir()
+    monkeypatch.setattr(Config, 'OASIS_SIMULATION_DATA_DIR', str(tmp_path))
+    (sim_dir / 'state.json').write_text(json.dumps({'status': 'completed', 'config_generated': True, 'enable_reddit': platform == 'reddit', 'enable_twitter': platform == 'twitter'}))
+    (sim_dir / 'simulation_config.json').write_text('{}')
+    (sim_dir / filename).write_text('[]' if platform == 'reddit' else 'user_id,name\n0,Test\n')
+    assert _check_simulation_prepared('sim_reopen')[0] is True
+    (sim_dir / filename).unlink()
+    assert _check_simulation_prepared('sim_reopen')[0] is False
