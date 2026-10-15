@@ -14,7 +14,7 @@ RUN python cloud/package_source.py /source /source.zip
 FROM python:3.12-slim-bookworm AS runtime
 COPY --from=ghcr.io/astral-sh/uv:0.13.1 /uv /bin/uv
 ENV PYTHONUNBUFFERED=1 UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy \
-    FLASK_DEBUG=False MIROFISH_DATA_DIR=/var/data/mirofish \
+    FLASK_DEBUG=False MIROFISH_SHARED_HOST=1 MIROFISH_DATA_DIR=/var/data/mirofish \
     MIROFISH_MAX_AGENTS=8 MIROFISH_MAX_ROUNDS=20 MIROFISH_NEW_PROJECTS_PER_DAY=3 \
     MIROFISH_AI_REQUESTS_PER_DAY=24 REPORT_AGENT_MAX_TOOL_CALLS=3 \
     OASIS_DEFAULT_MAX_ROUNDS=20
