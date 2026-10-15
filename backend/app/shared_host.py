@@ -17,6 +17,8 @@ AI_PATHS = {
     '/api/simulation/prepare', '/api/simulation/start',
     '/api/report/generate', '/api/report/chat',
     '/api/simulation/interview', '/api/simulation/interview/batch',
+    '/api/simulation/interview/all', '/api/simulation/generate-profiles',
+    '/api/report/tools/search',
 }
 
 class DailyBudget:
